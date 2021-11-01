@@ -17,8 +17,8 @@ const Trivia = ({ data, setStop, questionNumber, setQuestionNumber }) => {
   }, [letsPlay]);
 
   useEffect(() => {
-    setQuestion(data[questionNumber - 1], [data, questionNumber]);
-  });
+    setQuestion(data[questionNumber - 1])
+  }, [data, questionNumber]);
 
   const delay = (duration, callback) => {
     setTimeout(() => {
@@ -52,8 +52,9 @@ const Trivia = ({ data, setStop, questionNumber, setQuestionNumber }) => {
     <div className="trivia">
       <div className="question">{question?.question}</div>
       <div className="answers">
-        {question?.answers.map((a) => (
+        {question?.answers.map((a, index) => (
           <div
+            key={index}
             className={selectedAnswer === a ? className : "answer"}
             onClick={() => handleClick(a)}
           >

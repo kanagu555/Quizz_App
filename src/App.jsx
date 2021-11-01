@@ -124,8 +124,9 @@ function App() {
       </div>
       <div className="pyramid">
         <ul className="moneyList">
-          {moneyPyramid.map((m) => (
+          {moneyPyramid.map((m, index) => (
             <li
+            key={index}
               className={
                 questionNumber === m.id
                   ? "moneyListItem active"
